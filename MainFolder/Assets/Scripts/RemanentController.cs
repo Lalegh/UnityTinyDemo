@@ -6,7 +6,6 @@ public class RemanentController : MonoBehaviour
 {
     public static RemanentController instance;
 
-
     //用来存放预设残影
     Stack<GameObject> tempStack;
 
@@ -33,7 +32,6 @@ public class RemanentController : MonoBehaviour
 
             //设置父子关系
             //dash.transform.parent = GameObject.FindWithTag("Player").transform;
-
 
             tempStack.Push(dash);
         }

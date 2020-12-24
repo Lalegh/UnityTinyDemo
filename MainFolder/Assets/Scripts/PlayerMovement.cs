@@ -56,15 +56,26 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            isDashing = false;
+
+           isDashing = false;
+
             rb.velocity = new Vector2(moveH * moveSpeed, moveV * moveSpeed);
             
         }
         Flip();
     }
 
+    /// <summary>
+    /// 反转玩家的左右侧
+    /// </summary>
     private void Flip()
     {
+        Transform temp = transform.Find("GameObject");
+        //当当前玩家正在攻击时，停止反转玩家的transform
+        if (temp.Find("Slash").gameObject.activeInHierarchy)
+        {
+            return;
+        }
         if (moveH > 0)
         { 
             transform.eulerAngles = new Vector3(0,0,0);
@@ -78,12 +89,12 @@ public class PlayerMovement : MonoBehaviour
     private void Dash()
     {
         
-
+        //冲刺速度
         rb.velocity = new Vector2(moveH * dashSpeed, moveV * dashSpeed);
 
+        //判断当前是否有残影协程正在进行
         if (!coroStarted)
         {
-
             StartCoroutine(GenerateRems());
             coroStarted = true;
         }

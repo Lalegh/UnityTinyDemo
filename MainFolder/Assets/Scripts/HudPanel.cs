@@ -17,6 +17,9 @@ public class HudPanel:MonoBehaviour
     Text slay;
     Button buttonl;
 
+    //控制游戏进行阶段的flag
+    public int flag;
+
     private void Awake()
     {
         instance = this;
@@ -38,9 +41,6 @@ public class HudPanel:MonoBehaviour
     {
         Time.timeScale = 0;
         GameObject temp = Instantiate(Resources.Load<GameObject>("FailedPanel"), GameObject.FindWithTag("MainCanvas").transform);
-
-
-
 
     }
 }

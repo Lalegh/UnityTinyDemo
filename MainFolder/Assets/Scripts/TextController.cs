@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// 控制引导文字的渐变
+/// </summary>
 public class TextController : MonoBehaviour
 {
     Text myText;
